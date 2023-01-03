@@ -17,6 +17,7 @@
     "@types/hyper-function-component": "^2.1.0"
   },
   "dependencies": {
-    "hfcpack": "^2.0.6"
-  }
+    "hfcpack": "^2.0.8"
+  },
+  "banner": "/imgs/4Rqq-yLEKZM.png"
 }

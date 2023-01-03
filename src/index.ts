@@ -1,19 +1,25 @@
 import './index.css';
 
-const HFC: HyperFunctionComponent = (container, props) => {
+const HFC: HyperFunctionComponent = (container, initProps) => {
   container.classList.add('uiv-button-1');
-  container.innerHTML = props.attrs.text || '';
 
-  if (props.events.onClick) {
-    container.addEventListener('click', props.events.onClick);
+  function render(props: HfcProps) {
+    if (props.events.onClick) {
+      (container as HTMLButtonElement).onclick = props.events.onClick;
+    }
+
+    if (props.slots.default) {
+      props.slots.default(container);
+    } else {
+      container.innerHTML = props.attrs.text || '';
+    }
   }
 
-  console.log(props);
-  // Object.assign(container, props._);
+  render(initProps);
 
   return {
     changed(props: HfcProps) {
-      container.innerHTML = props.attrs.text || '';
+      render(props);
     },
     disconnected() {},
   };

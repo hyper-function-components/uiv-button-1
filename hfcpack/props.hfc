@@ -5,3 +5,7 @@ model Attr {
 model Event {
   onClick: {}
 }
+
+model Slot {
+  default: {}
+}
