@@ -1,25 +1,25 @@
-import "./index.css";
+import './index.css';
 
 const HFC: HyperFunctionComponent = (container, props) => {
-  container.innerHTML = `
-      <h1>
-        <div>THIS COMPONENT</div>
-        <div>CAN BE USED IN</div>
-        <div class="brand">
-          <ul>
-            <li>React</li>
-            <li>Vue</li>
-            <li>Hfz</li>
-            <li>Angular</li>
-            <li>WebComponents</li>
-          </ul>
-        </div>
-      </h1>`;
+  container.classList.add('uiv-button-1');
+  container.innerHTML = props.attrs.text || '';
 
-  return { changed(props: HfcProps) {}, disconnected() {} };
+  if (props.events.onClick) {
+    container.addEventListener('click', props.events.onClick);
+  }
+
+  console.log(props);
+  // Object.assign(container, props._);
+
+  return {
+    changed(props: HfcProps) {
+      container.innerHTML = props.attrs.text || '';
+    },
+    disconnected() {},
+  };
 };
 
-HFC.tag = "div";
+HFC.tag = 'button';
 // @ts-ignore
 HFC.hfc = process.env.HFC_NAME;
 // @ts-ignore
