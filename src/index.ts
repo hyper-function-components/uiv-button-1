@@ -6,6 +6,10 @@ const HFC: HyperFunctionComponent = (container, initProps) => {
   function render(props: HfcProps) {
     if (props.events.onClick) {
       (container as HTMLButtonElement).onclick = props.events.onClick;
+    } else {
+      if ((container as HTMLButtonElement).onclick) {
+        (container as HTMLButtonElement).onclick = null;
+      }
     }
 
     if (props.slots.default) {

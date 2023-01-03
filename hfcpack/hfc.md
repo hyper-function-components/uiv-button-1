@@ -1,9 +1,6 @@
 ```hfz-view id=osxbgm95lfk
 <template hfz import:uiv-button-1="dev">
-  <div style="display: flex; justify-content: center; padding: 100px">
-<uiv-button-1 text="Hover me"></uiv-button-1>
-  </div>
-  
+  <uiv-button-1 text="Hover me"></uiv-button-1>
 </template>
 
 ```
